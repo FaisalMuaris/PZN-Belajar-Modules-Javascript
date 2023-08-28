@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object</title>
+  </head>
+  <body>
+    <!-- 
+        menggunakan Object.freeze(variabel) : tidak bisa menghapus, menambah atau mengedit property yang sudah di pasang
+        menggunakan Object.seal(variabel) : bisa merubah property tetapi tidak bisa menambah atau menghapus property
+        Menggunakan Object.assign(target, source) : menggabungkan semua atribut dari sebuah object ke object yang lain
+     -->
+
+    <script>
+      {
+        // object freeze dan object seal
+        const person = {
+          firstName: "Faisal",
+          lastName: "Muaris",
+        };
+
+        //   Object.freeze(person);
+        Object.seal(person);
+
+        person.firstName = "Budi";
+        delete person.lastName;
+
+        console.info(person);
+      }
+
+      {
+        // object assign
+
+        const target = {
+          firstName: "Faisal",
+        };
+
+        const source = {
+          lastName: "Muaris",
+        };
+
+        Object.assign(target, source);
+
+        console.info(target);
+        console.info(source);
+      }
+
+      {
+        // Object property name & value
+        const person = {
+          firstName: "Faisal",
+          lastName: "Muaris",
+        };
+
+        // untuk menadapatkan semua value dari property
+        console.info(Object.values(person));
+        // untuk menadapatkan semua nama property
+        console.info(Object.getOwnPropertyNames(person));
+      }
+    </script>
+  </body>
+</html>
